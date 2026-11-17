@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi persona favorita 💌</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, #f9b8c9, #ffe2e9, #f6a8bc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 15px;
+    overflow-x: hidden;
+}
+
+.flores {
+    position: fixed;
+    font-size: 30px;
+    opacity: .8;
+    animation: flotar 5s infinite ease-in-out;
+    pointer-events: none;
+}
+
+.f1 { top: 5%; left: 5%; }
+.f2 { top: 12%; right: 7%; animation-delay: 1s; }
+.f3 { bottom: 8%; left: 8%; animation-delay: 2s; }
+.f4 { bottom: 12%; right: 8%; animation-delay: 1.5s; }
+
+@keyframes flotar {
+    50% { transform: translateY(-15px) rotate(10deg); }
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 520px;
+    background: #fff7f2;
+    padding: 30px 22px;
+    border-radius: 18px 18px 30px 30px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 15px 40px #a83b5940;
+    border: 2px solid #e9a4b5;
+}
+
+.contenedor::before {
+    content: "♡  ♡  ♡  ♡  ♡";
+    display: block;
+    color: #df7795;
+    font-size: 23px;
+    letter-spacing: 10px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    color: #a83257;
+    font-size: 31px;
+    margin: 10px 0;
+}
+
+.subtitulo {
+    color: #bd6680;
+    font-size: 17px;
+    font-style: italic;
+}
+
+.sobre {
+    margin: 25px auto;
+    font-size: 75px;
+    animation: latido 2s infinite;
+}
+
+@keyframes latido {
+    50% { transform: scale(1.08); }
+}
+
+.carta {
+    background: linear-gradient(145deg, #fff0f3, #ffe1e8);
+    border: 2px dashed #e98aa5;
+    border-radius: 18px;
+    padding: 25px 15px;
+    margin: 15px 0;
+    min-height: 175px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mensaje {
+    color: #9e3455;
+    font-size: 23px;
+    line-height: 1.6;
+    transition: opacity .3s;
+}
+
+button {
+    border: none;
+    border-radius: 30px;
+    padding: 15px 25px;
+    background: linear-gradient(135deg, #e94e7b, #bd174f);
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    margin: 8px;
+    box-shadow: 0 5px 12px #b8325b55;
+    transition: transform .2s;
+}
+
+button:hover {
+    transform: scale(1.06);
+}
+
+.pie {
+    color: #c05c7b;
+    font-size: 17px;
+    font-style: italic;
+    margin-top: 25px;
+}
+
+.contador {
+    color: #bd6680;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+.corazon {
+    position: fixed;
+    bottom: -30px;
+    animation: subir 6s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes subir {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media(max-width: 400px) {
+    h1 { font-size: 25px; }
+    #mensaje { font-size: 20px; }
+    .contenedor { padding: 25px 15px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="flores f1">🌹</div>
+<div class="flores f2">🌸</div>
+<div class="flores f3">💐</div>
+<div class="flores f4">🌷</div>
+
+<main class="contenedor">
+
+    <h1>Mi persona favorita ♡</h1>
+
+    <p class="subtitulo">
+        Una pequeña carta hecha especialmente para ti...
+    </p>
+
+    <div class="sobre">💌</div>
+
+    <p class="subtitulo">
+        Abre tu corazón y lee tu mensajito de hoy.
+    </p>
+
+    <section class="carta">
+        <div id="mensaje">Cargando una carta especial...</div>
+    </section>
+
+    <button onclick="nuevoMensaje()">
+        💗 Otro mensajito
+    </button>
+
+    <div class="pie">
+        Gracias por existir...<br>
+        Te quiero mucho ♡
+    </div>
+
+    <div class="contador" id="contador"></div>
+
+</main>
+
+<script>
+
+// =================================
+// 200 MENSAJES PARA MI PERSONA FAVORITA
+// =================================
+
+const mensajes = [
+"Eres mi casualidad favorita. ❤️",
+"Tu sonrisa es mi lugar favorito.",
+"Si pudiera elegir otra vez, te elegiría a ti.",
+"Gracias por hacer mis días más bonitos.",
+"Eres una de las mejores cosas que me han pasado.",
+"Quiero seguir creando recuerdos contigo.",
+"Mi corazón sonríe cuando pienso en ti.",
+"Eres mi pensamiento favorito.",
+"Contigo todo parece un poquito mejor.",
+"No necesito un día especial para decirte que te quiero.",
+"Ojalá pudiera abrazarte en este momento.",
+"Tu existencia hace mi mundo más bonito.",
+"Me encanta tenerte en mi vida.",
+"Si el amor tuviera nombre, llevaría el tuyo.",
+"Eres mi persona favorita en todo el universo.",
+"Quiero ser una razón más para que sonrías.",
+"Me haces feliz de una manera que no puedo explicar.",
+"Cada momento contigo vale muchísimo.",
+"Tu felicidad también es importante para mí.",
+"Te elegiría incluso en mil vidas diferentes.",
+"Gracias por cada sonrisa que me regalas.",
+"Eres mi lugar seguro.",
+"Me encanta cada pequeño detalle de ti.",
+"Mi día mejora cuando sé de ti.",
+"No sabes lo bonito que es tenerte.",
+"Quisiera detener el tiempo cuando estoy contigo.",
+"Eres esa personita que siempre quiero cuidar.",
+"Me haces creer en las cosas bonitas.",
+"Te mando un abrazo enorme aunque sea a la distancia.",
+"Tu sonrisa podría iluminar cualquier lugar.",
+"Eres una historia que nunca quiero terminar.",
+"Mi parte favorita del día es hablar contigo.",
+"Qué bonito es coincidir contigo.",
+"Me haces sentir una felicidad diferente.",
+"Siempre tendrás un lugar especial en mi corazón.",
+"Si pudiera regalarte algo, sería poder verte como yo te veo.",
+"Me encantas incluso en tus días difíciles.",
+"Quiero estar presente en tus días buenos y malos.",
+"Cada día encuentro una razón nueva para quererte.",
+"Eres un regalo que la vida me dio.",
+"Me gusta imaginar muchos momentos a tu lado.",
+"Tu voz es una de mis melodías favoritas.",
+"No cambiaría lo bonito que siento por ti.",
+"Gracias por ser exactamente como eres.",
+"Me encanta cuando sonríes sin darte cuenta.",
+"Eres mi pensamiento antes de dormir.",
+"Y también el primero cuando despierto.",
+"Me haces sentir que todo puede salir bien.",
+"Contigo los días simples se vuelven especiales.",
+"Te quiero más de lo que mis palabras pueden explicar.",
+"Si fueras una estrella, serías la que nunca dejaría de mirar.",
+"Mi corazón tiene una debilidad y eres tú.",
+"Quiero llenar tus días de pequeños detalles.",
+"Me encanta compartir mi tiempo contigo.",
+"Eres una de mis razones para sonreír.",
+"Tu abrazo sería mi lugar favorito ahora mismo.",
+"Me haces sentir mucha suerte.",
+"No olvides lo increíble que eres.",
+"Quisiera darte mil besitos en la frente.",
+"Eres mi flor favorita en este jardín llamado vida.",
+"Te mereces todas las cosas bonitas del mundo.",
+"Me encanta saber que existes.",
+"Qué suerte la mía de haberte conocido.",
+"Siempre voy a querer verte feliz.",
+"Me gusta todo lo que construimos juntos.",
+"Quiero conocer cada versión de ti.",
+"Me haces feliz hasta con los detalles más pequeños.",
+"Si el tiempo se detuviera, elegiría estar contigo.",
+"Eres una personita maravillosa.",
+"Me encanta poder llamarte mi persona favorita.",
+"Quiero que nunca dudes de lo importante que eres.",
+"Hoy también eres mi pensamiento favorito.",
+"Te quiero en los días soleados y en los lluviosos.",
+"Cada mensaje tuyo me saca una sonrisa.",
+"Quiero ser tu tranquilidad cuando el mundo sea difícil.",
+"Tu existencia es una bonita coincidencia.",
+"Me encantas más de lo que imaginas.",
+"Hay millones de personas, pero yo te miro a ti.",
+"Me gusta hasta la forma en que cuentas tus historias.",
+"Gracias por formar parte de mi vida.",
+"Eres una pequeña felicidad gigante.",
+"Si pudiera pedir un deseo, sería más tiempo contigo.",
+"Quiero cuidar lo bonito que tenemos.",
+"Me gusta cómo haces que mi mundo cambie de color.",
+"Tu sonrisa merece aparecer todos los días.",
+"Quiero darte motivos para sonreír.",
+"Me encanta que seas tú.",
+"Mi corazón te manda un abrazo.",
+"Te pienso incluso cuando estoy ocupado.",
+"Me gusta imaginar tu carita leyendo esto.",
+"Quisiera estar ahí para darte un abrazo.",
+"Eres mi lugar favorito, incluso a la distancia.",
+"Hay cosas que no se explican y tú eres una de ellas.",
+"Me encanta compartir momentos contigo.",
+"Quiero que sepas que cuentas conmigo.",
+"Tu felicidad me importa muchísimo.",
+"Te quiero sin necesitar una razón especial.",
+"Me haces sentir mariposas.",
+"Cada recuerdo contigo tiene algo especial.",
+"Quiero seguir descubriendo el mundo contigo.",
+"Me encanta cuando me cuentas cómo estuvo tu día.",
+"Eres la casualidad más bonita de mi vida.",
+"Un día contigo vale por mil recuerdos.",
+"Te escogería entre todas las estrellas.",
+"Me encanta la persona que eres.",
+"Quiero que siempre tengas motivos para sonreír.",
+"Si pudiera escribir un libro, tendría muchas páginas sobre ti.",
+"Eres una de mis mejores aventuras.",
+"Me gusta pensar en nuestro próximo abrazo.",
+"Te quiero incluso en los momentos silenciosos.",
+"Gracias por cada instante compartido.",
+"Quiero que esta carta te recuerde lo especial que eres.",
+"Me encanta tenerte cerquita de mi corazón.",
+"Tu nombre tiene algo especial para mí.",
+"Eres una razón bonita para mirar el futuro.",
+"Quiero que te sientas querida todos los días.",
+"Me haces sonreír sin siquiera intentarlo.",
+"Mi corazón siempre encuentra el camino hacia ti.",
+"Qué bonito es tener a alguien como tú.",
+"Te mereces un universo entero de cosas bonitas.",
+"Si pudiera, te regalaría un abrazo infinito.",
+"Me encanta cada momento que compartimos.",
+"Quiero aprender a quererte cada día mejor.",
+"Eres más especial de lo que crees.",
+"Siempre voy a celebrar tus pequeños logros.",
+"Me encanta verte cumplir tus sueños.",
+"Tu presencia hace la diferencia.",
+"Me gusta cuando somos simplemente nosotros.",
+"Gracias por hacerme sentir tantas cosas bonitas.",
+"Quiero ser alguien con quien puedas contar.",
+"Te mando un millón de corazones.",
+"Me haces creer que las mejores cosas llegan inesperadamente.",
+"Tu sonrisa es mi debilidad.",
+"Me encanta cómo eres, sin cambiar nada.",
+"Quiero muchos recuerdos más contigo.",
+"Eres una persona que vale muchísimo.",
+"Hoy quiero recordarte que eres increíble.",
+"Si pudiera volver al pasado, buscaría conocerte antes.",
+"Me gusta imaginar todas las aventuras que nos esperan.",
+"Un abrazo tuyo arreglaría mi día.",
+"Te quiero más allá de los mensajes y las palabras.",
+"Me encanta que seas parte de mi historia.",
+"Mi lugar favorito siempre tendrá algo de ti.",
+"Quiero compartir contigo hasta los días más normales.",
+"Me haces sentir una tranquilidad hermosa.",
+"Cada día contigo es una oportunidad para sonreír.",
+"Quisiera darte las gracias por simplemente existir.",
+"Eres una de mis razones favoritas para sonreír.",
+"Te quiero con tus virtudes y tus imperfecciones.",
+"Me encanta tu forma de ver el mundo.",
+"Si la vida es un viaje, qué bonito sería recorrerlo contigo.",
+"Siempre habrá una flor para ti en mi jardín.",
+"Me gustaría ser el motivo de una de tus sonrisas.",
+"Tu cariño es un regalo que valoro muchísimo.",
+"Quiero que nunca te falten abrazos.",
+"Me encanta cuando compartimos tonterías.",
+"Eres mi pensamiento bonito de cada día.",
+"Quiero seguir eligiéndote en cada oportunidad.",
+"Tu existencia hace que valga la pena detenerse a sonreír.",
+"Te quiero en cada pequeño instante.",
+"Me haces sentir que estoy donde quiero estar.",
+"Qué bonito sería repetir nuestros mejores momentos.",
+"Si hoy fue difícil, recuerda que eres capaz de mucho.",
+"Estoy orgulloso de la persona que eres.",
+"Nunca dejes de brillar.",
+"Quiero verte alcanzar todo lo que sueñas.",
+"Siempre merecerás amor bonito y sincero.",
+"Me encanta que podamos compartir nuestras locuras.",
+"Tu felicidad es una de las cosas que más deseo.",
+"Quiero que te sientas especial, porque lo eres.",
+"Me gusta hasta extrañarte, porque significa que te quiero cerca.",
+"Cada latido guarda un poquito de cariño para ti.",
+"Hoy, mañana y siempre, te deseo cosas bonitas.",
+"Mi corazón te eligió entre millones de personas.",
+"Si fueras una canción, nunca dejaría de escucharla.",
+"Quiero ser parte de tus recuerdos favoritos.",
+"Me haces feliz con solo ser tú.",
+"Te mereces el abrazo más grande del mundo.",
+"Me encanta cuando compartes tus sueños conmigo.",
+"Gracias por regalarme momentos inolvidables.",
+"Quiero que esta sonrisa te acompañe todo el día.",
+"Eres una personita que quiero muchísimo.",
+"Mi cariño por ti no cabe en una sola carta.",
+"Me encanta la magia de estar contigo.",
+"Cada detalle tuyo se queda guardado en mi corazón.",
+"Quiero que siempre recuerdes cuánto vales.",
+"Si pudiera elegir un lugar, sería a tu lado.",
+"Me gusta el mundo un poquito más desde que estás en él.",
+"Tu compañía es uno de mis regalos favoritos.",
+"Quiero llenar tu vida de momentos felices.",
+"Eres una razón para creer en el amor bonito.",
+"Me encanta compartir mis días contigo.",
+"Hoy te mando cariño multiplicado por mil.",
+"Tu sonrisa es un tesoro que quiero cuidar.",
+"Me haces sentir la persona más afortunada.",
+"Quiero que siempre tengas un lugar donde sentirte en paz.",
+"Te elegiría incluso en los días complicados.",
+"Gracias por dejarme conocer tu mundo.",
+"Quiero que sepas que pienso mucho en ti.",
+"Eres una de las páginas más bonitas de mi historia.",
+"Me encanta que existas en el mismo tiempo que yo.",
+"Cada día contigo tiene algo que agradecer.",
+"Quiero seguir escribiendo nuestra historia.",
+"Te mando una flor imaginaria y un abrazo real en el corazón.",
+"Mi cariño por ti crece en los pequeños detalles.",
+"Eres mi bonita razón para sonreír.",
+"Espero que nunca olvides lo mucho que te quiero.",
+"Esta carta tiene 200 mensajes, pero ninguno alcanza para explicar lo que siento por ti."
+];
+
+// =================================
+// MOSTRAR MENSAJES ALEATORIOS
+// =================================
+
+const elemento = document.getElementById("mensaje");
+const contador = document.getElementById("contador");
+
+let anterior = sessionStorage.getItem("ultimoMensaje");
+let actual;
+
+function nuevoMensaje() {
+
+    let numero;
+
+    do {
+        numero = Math.floor(Math.random() * mensajes.length);
+    } while (mensajes.length > 1 && numero == anterior);
+
+    actual = numero;
+    anterior = numero;
+
+    sessionStorage.setItem("ultimoMensaje", numero);
+
+    elemento.style.opacity = 0;
+
+    setTimeout(() => {
+        elemento.textContent = mensajes[numero];
+        elemento.style.opacity = 1;
+
+        contador.textContent =
+            "Mensajito " + (numero + 1) + " de " + mensajes.length;
+    }, 250);
+
+    crearCorazon();
+}
+
+// =================================
+// CORAZONES FLOTANTES
+// =================================
+
+function crearCorazon() {
+
+    const corazon = document.createElement("div");
+
+    corazon.className = "corazon";
+
+    const simbolos = ["❤️", "💕", "💗", "💖", "🌸"];
+
+    corazon.textContent =
+        simbolos[Math.floor(Math.random() * simbolos.length)];
+
+    corazon.style.left = Math.random() * 100 + "vw";
+    corazon.style.fontSize = (15 + Math.random() * 20) + "px";
+
+    document.body.appendChild(corazon);
+
+    setTimeout(() => {
+        corazon.remove();
+    }, 6000);
+}
+
+// Al cargar la página aparece un mensaje nuevo
+nuevoMensaje();
+
+</script>
+
+</body>
+</html>
